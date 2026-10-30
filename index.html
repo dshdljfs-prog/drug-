@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a25">
+  <meta name="description" content="عقاراتي — ابحث عن بيتك أو أرضك القادمة بسهولة.">
+  <title>عقاراتي | بيتك يبدأ من هنا</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">⌂</span><span>عقاراتي<small>بيتك يبدأ من هنا</small></span></a>
+    <nav><a href="#listings">العقارات</a><a href="#why">لماذا عقاراتي؟</a><a href="#contact">تواصل معنا</a></nav>
+    <button class="btn btn-outline" id="adminOpen">لوحة التحكم <span>↗</span></button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><i></i> منصتك العقارية الموثوقة</span>
+        <h1>المكان الصح<br><em>يبدأ بخطوة.</em></h1>
+        <p>اكتشف بيوت وأراضي للبيع في منطقتك، وتواصل مباشرة مع صاحب الإعلان أو الوسيط العقاري.</p>
+        <a class="btn btn-primary" href="#listings">اكتشف العقارات <span>←</span></a>
+        <div class="hero-stats"><div><b id="statCount">0</b><small>عقار معروض</small></div><div><b>مباشر</b><small>تواصل مع الوسيط</small></div><div><b>سهل</b><small>بحث وفلترة</small></div></div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-image"></div>
+        <div class="floating-card"><span class="float-icon">⌂</span><div><b>اختيارك القادم</b><small>ابدأ رحلة البحث الآن</small></div><span class="spark">✦</span></div>
+        <div class="hero-tag">مساحات تناسب أحلامك</div>
+      </div>
+    </section>
+
+    <section class="search-panel" aria-label="البحث عن عقار">
+      <div class="search-field"><label for="searchInput">ابحث عن عقار</label><input id="searchInput" placeholder="اسم المنطقة أو وصف العقار..."></div>
+      <div class="search-field"><label for="typeFilter">نوع العقار</label><select id="typeFilter"><option value="">كل الأنواع</option><option>بيت</option><option>شقة</option><option>أرض</option><option>فيلا</option><option>محل تجاري</option></select></div>
+      <div class="search-field"><label for="dealFilter">نوع العملية</label><select id="dealFilter"><option value="">بيع أو إيجار</option><option>بيع</option><option>إيجار</option></select></div>
+      <button class="btn btn-dark" id="searchBtn">ابحث الآن <span>⌕</span></button>
+    </section>
+
+    <section class="section listings-section" id="listings">
+      <div class="section-heading"><div><span class="eyebrow">فرص تستحق الاكتشاف</span><h2>عقارات مميزة</h2><p>اختار العقار المناسب ليك وتواصل مع الوسيط مباشرة.</p></div><span class="result-count" id="resultCount">0 نتيجة</span></div>
+      <div class="chips"><button class="chip active" data-chip="">الكل</button><button class="chip" data-chip="بيت">بيوت</button><button class="chip" data-chip="شقة">شقق</button><button class="chip" data-chip="أرض">أراضي</button><button class="chip" data-chip="فيلا">فلل</button></div>
+      <div class="property-grid" id="propertyGrid"></div>
+      <div class="empty-state hidden" id="emptyState"><div>⌂</div><h3>لسه مفيش عقارات هنا</h3><p>جرّب تغيّر البحث أو ارجع بعد شوية.</p></div>
+    </section>
+
+    <section class="why-section" id="why"><div><span class="eyebrow">تجربة أسهل وأوضح</span><h2>دور على اللي يناسبك<br>بثقة وراحة بال.</h2></div><div class="why-grid"><article><span>01</span><h3>تفاصيل واضحة</h3><p>المساحة والسعر والموقع والصور في مكان واحد.</p></article><article><span>02</span><h3>تواصل مباشر</h3><p>اتصل أو راسل الوسيط المسؤول عن العقار.</p></article><article><span>03</span><h3>اختيارات متنوعة</h3><p>بيوت وشقق وأراضي وعقارات تجارية.</p></article></div></section>
+    <section class="contact-strip" id="contact"><div><span class="eyebrow">محتاج مساعدة؟</span><h2>عقارك القادم أقرب مما تتخيل.</h2><p>تواصل معنا لو عندك استفسار أو حابب تعرض عقارك.</p></div><a class="btn btn-light" href="https://wa.me/" target="_blank" rel="noopener">تواصل عبر واتساب ↗</a></section>
+  </main>
+  <footer><a class="brand" href="#"><span class="brand-mark">⌂</span><span>عقاراتي<small>بيتك يبدأ من هنا</small></span></a><span>© <span id="year"></span> عقاراتي — جميع الحقوق محفوظة</span><a href="#top">العودة للأعلى ↑</a></footer>
+
+  <div class="modal-backdrop hidden" id="adminModal">
+    <section class="admin-modal">
+      <button class="modal-close" id="closeAdmin" aria-label="إغلاق">×</button>
+      <div id="loginView"><span class="eyebrow">إدارة الموقع</span><h2>أهلاً بعودتك</h2><p>أدخل رمز الدخول لفتح لوحة التحكم.</p><form id="loginForm"><label>رمز الدخول</label><input type="password" id="adminCode" placeholder="•••••••••••" required><button class="btn btn-primary full">دخول لوحة التحكم</button><small class="error" id="loginError"></small></form></div>
+      <div id="dashboardView" class="hidden">
+        <div class="dash-head"><div><span class="eyebrow">إدارة عقاراتي</span><h2>لوحة التحكم</h2></div><button class="btn btn-outline" id="logoutBtn">تسجيل الخروج</button></div>
+        <div class="dash-tabs"><button class="tab active" data-tab="properties">العقارات</button><button class="tab" data-tab="appearance">التصميم والثيمات</button><button class="tab" data-tab="settings">الإعدادات</button></div>
+        <div id="tab-properties" class="tab-panel">
+          <div class="dash-summary"><div><small>إجمالي العقارات</small><b id="dashTotal">0</b></div><div><small>للبيع</small><b id="dashSale">0</b></div><div><small>للإيجار</small><b id="dashRent">0</b></div></div>
+          <div class="form-title"><h3 id="formHeading">إضافة عقار جديد</h3><span>املأ البيانات ثم اضغط نشر العقار</span></div>
+          <form id="propertyForm" class="property-form">
+            <input type="hidden" id="editId">
+            <div class="form-grid">
+              <div><label>عنوان الإعلان *</label><input id="pTitle" required placeholder="مثال: بيت عائلي قريب من الخدمات"></div>
+              <div><label>نوع العقار *</label><select id="pType" required><option>بيت</option><option>شقة</option><option>أرض</option><option>فيلا</option><option>محل تجاري</option></select></div>
+              <div><label>نوع العملية *</label><select id="pDeal"><option>بيع</option><option>إيجار</option></select></div>
+              <div><label>السعر بالجنيه المصري *</label><input id="pPrice" type="number" min="0" required placeholder="مثال: 1500000"></div>
+              <div><label>المساحة بالمتر² *</label><input id="pArea" type="number" min="1" required placeholder="مثال: 180"></div>
+              <div><label>المحافظة / المدينة *</label><input id="pLocation" required placeholder="مثال: المنصورة - الدقهلية"></div>
+              <div><label>عدد الغرف</label><input id="pRooms" type="number" min="0" placeholder="3"></div>
+              <div><label>عدد الحمامات</label><input id="pBaths" type="number" min="0" placeholder="2"></div>
+              <div><label>رقم الوسيط / الثمثار *</label><input id="pPhone" type="tel" required placeholder="مثال: 01012345678"></div>
+              <div><label>شارة الإعلان</label><select id="pBadge"><option value="">بدون</option><option>مميز</option><option>فرصة</option><option>جديد</option></select></div>
+              <div class="wide"><label>وصف العقار</label><textarea id="pDescription" rows="3" placeholder="اكتب تفاصيل العقار والمميزات..."></textarea></div>
+              <div class="wide"><label>صور العقار (يمكن اختيار أكثر من صورة)</label><input id="pImages" type="file" accept="image/*" multiple><small class="hint">الصور تُحفظ محلياً في نفس المتصفح. استخدم صوراً مضغوطة بحجم مناسب.</small><div id="imagePreview" class="image-preview"></div></div>
+            </div>
+            <div class="form-actions"><button class="btn btn-primary" type="submit">نشر العقار</button><button class="btn btn-outline hidden" type="button" id="cancelEdit">إلغاء التعديل</button></div>
+            <p class="notice" id="formNotice"></p>
+          </form>
+          <div class="form-title"><h3>إدارة الإعلانات</h3><span>تعديل أو حذف العقارات المنشورة</span></div><div id="adminPropertyList" class="admin-list"></div>
+        </div>
+        <div id="tab-appearance" class="tab-panel hidden"><div class="form-title"><h3>اختار شكل موقعك</h3><span>غيّر ألوان الموقع بضغطة واحدة</span></div><div class="theme-grid">
+          <button class="theme-option selected" data-theme="forest"><span class="swatch forest"></span><b>أخضر راقٍ</b><small>هادئ وفخم</small></button>
+          <button class="theme-option" data-theme="ocean"><span class="swatch ocean"></span><b>أزرق عصري</b><small>نظيف واحترافي</small></button>
+          <button class="theme-option" data-theme="sand"><span class="swatch sand"></span><b>رملي دافئ</b><small>طابع عقاري كلاسيكي</small></button>
+          <button class="theme-option" data-theme="dark"><span class="swatch dark"></span><b>داكن فاخر</b><small>مظهر أنيق</small></button>
+        </div><p class="hint">الثيم المختار يُحفظ على هذا المتصفح.</p></div>
+        <div id="tab-settings" class="tab-panel hidden"><div class="form-title"><h3>إعدادات التواصل</h3><span>بيانات تظهر في الموقع</span></div><form id="settingsForm" class="settings-form"><label>رقم واتساب الموقع (بصيغة دولية بدون +)</label><input id="siteWhatsapp" placeholder="2010xxxxxxxx"><label>اسم الموقع</label><input id="siteName" value="عقاراتي"><button class="btn btn-primary">حفظ الإعدادات</button></form><p class="hint">ملاحظة: لا تضع بيانات سرية في هذه الإعدادات.</p></div>
+      </div>
+    </section>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
